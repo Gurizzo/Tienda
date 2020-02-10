@@ -5,25 +5,35 @@ import { Button,Form} from "react-bootstrap";
 function handleSubmit(event) { //Accion del login
     alert("hola");
   }
+function registrar(event){ //Accion de enlace.
+  alert("Registro");
+}
 
 const Login = ({data}) =>((
 
 <Form onSubmit={handleSubmit}>
   <Form.Group controlId="formBasicEmail">
-    <Form.Label>Email address</Form.Label>
-    <Form.Control type="email" placeholder="Enter email" />
+    <Form.Label>Correo electronico</Form.Label>
+    <Form.Control type="email" placeholder="Ingresar email" />
   </Form.Group>
 
   <Form.Group controlId="formBasicPassword">
-    <Form.Label>Password</Form.Label>
-    <Form.Control type="password" placeholder="Password" />
+    <Form.Label>Contraseña</Form.Label>
+    <Form.Control type="password" placeholder="Contraseña" />
   </Form.Group>
   <Form.Group controlId="formBasicCheckbox">
-    <Form.Check type="checkbox" label="Check me out" />
+    <Form.Check type="checkbox" label="Recordar" />
   </Form.Group>
   <Button variant="primary" type="submit">
-    Submit
+    Conectar
   </Button>
+  
+  <Form onClick={registrar}>
+  <Button variant="secundary" type="click">
+  Registrar
+</Button>
+</Form>
+
 </Form>
 )
 );
