@@ -1,5 +1,10 @@
 .App {
-  text-align: center;
+  text-align: left;
+  border-radius: 35px 35px 35px 35px;
+  -moz-border-radius: 35px 35px 35px 35px;
+  -webkit-border-radius: 35px 35px 35px 35px;
+  border: 0px solid #000000;
+  background-color: #61dafb;
 }
 
 .App-logo {
