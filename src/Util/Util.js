@@ -1,21 +1,22 @@
 
 
-filterProductsByName(products,name) = () =>{
+
+const filterProductsByName = ({products,name}) = () =>{
 
 return products;
 }
 
-addToCart(cart,item) = () =>{
+const addToCart = ({cart,item}) = () =>{
 
 return true;
 }
 
-countCartItems(cart) = () =>{
+const countCartItems = cart = () =>{
 
 return count;
 }
 
-countCartTotalAmount(cart) = () =>{
+const countCartTotalAmount = cart = () =>{
 
 return total;
 }
