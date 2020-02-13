@@ -1,22 +1,37 @@
 
+ const cart=[
+    
+       { 
+           "_id":"5e40b0ee97fef18946b150f2",
+           "name":"Poción Multijugos",
+           "description":"Brebaje anti-resfrío y anti-gripal, ideado, elaborado y producido por Rigoberta Menchú.",
+           "price":111.6,
+           "photo":"http://tiendaonline2020.herokuapp.com/img/pocion_de_rigoberta.jpg",
+           "Count":0
+        },
+    
+]
 
+export function filterProductsByName(products,name) {
 
-const filterProductsByName = ({products,name}) = () =>{
-
-return products;
+    return products.filter(product =>{
+        return products.name.ToLowerCase().includes( name.ToLowerCase()) }
+        );
 }
 
-const addToCart = ({cart,item}) = () =>{
+export function addToCart (cart,item) {
 
+    
 return true;
 }
 
-const countCartItems = cart = () =>{
+export function countCartItems (cart) {
 
-return count;
+return cart.length();
 }
 
-const countCartTotalAmount = cart = () =>{
+export function countCartTotalAmount (cart) {
+    const total=0;
 
 return total;
 }
