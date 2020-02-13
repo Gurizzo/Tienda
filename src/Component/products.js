@@ -1,3 +1,5 @@
+
+import {getProducts} from './Service/Services';
 const products =
 [ 
     { 
@@ -108,14 +110,14 @@ const products =
  ];
 
  const cart=[
-     {
-        { 
-            "_id":"5e40b0ee97fef18946b150f2",
-            "name":"Poción Multijugos",
-            "description":"Brebaje anti-resfrío y anti-gripal, ideado, elaborado y producido por Rigoberta Menchú.",
-            "price":111.6,
-            "photo":"http://tiendaonline2020.herokuapp.com/img/pocion_de_rigoberta.jpg",
-            "Count":0
-         }
-     }
+   { 
+      "_id":"5e40b0ee97fef18946b150f2",
+      "name":"Poción Multijugos",
+      "description":"Brebaje anti-resfrío y anti-gripal, ideado, elaborado y producido por Rigoberta Menchú.",
+      "price":111.6,
+      "photo":"http://tiendaonline2020.herokuapp.com/img/pocion_de_rigoberta.jpg",
+      "count":1
+   }
  ]
+
+ products =getProducts();

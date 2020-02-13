@@ -38,15 +38,16 @@ export function login (userName,pass){
     
     };
     
-    const Products=[];
+
+
+
+
 export function getProducts (){
+    let Products=[];
+axios.Get(`${API_URL}/product/all`).then(res =>{
 
-
-
-axios.Get(`${API_URL}/product/all`).
-then(res =>{
-    const resonse = res.data;
-    Products({resonse});
+     Products = res.data;
+    
 })
-
+return Products;
 }
