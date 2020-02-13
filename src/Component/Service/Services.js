@@ -43,11 +43,5 @@ export function login (userName,pass){
 
 
 export function getProducts (){
-    let Products=[];
-axios.Get(`${API_URL}/product/all`).then(res =>{
-
-     Products = res.data;
-    
-})
-return Products;
+return axios.get(`${API_URL}/product/all`)
 }

@@ -21,6 +21,9 @@ export function filterProductsByName(products,name) {
 
 export function addToCart (cart,item) {
 
+    return cart.filter(cart =>{
+        if(cart._id===item._id cart.push(item):)
+    })
     
 return true;
 }
