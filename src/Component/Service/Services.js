@@ -16,15 +16,37 @@ fetch (url,{
 
 };
 
+signUp('prueba','prueba').then(res =>res.JSON())
+    .cath(console.error( error=>console.error('Error:',error))
+    .then(response =>console.log('Succes',response)));
+    
 
 
 export function login (userName,pass){
 
-    return true;
-}    
-
+    const url= `${API_URL}/user/login`;
+    fetch (url,{
+        method:'POST',
+        body: JSON.stringify({
+            email:userName,
+            password: pass
+        }),
+        headers: {
+            'Content-Type' : 'application/json' 
+        }
+    })
+    
+    };
+    
+    const Products=[];
 export function getProducts (){
 
-    const Products ={};
-return Products;
+
+
+axios.Get(`${API_URL}/product/all`).
+then(res =>{
+    const resonse = res.data;
+    Products({resonse});
+})
+
 }
