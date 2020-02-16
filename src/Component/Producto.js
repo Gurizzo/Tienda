@@ -2,16 +2,21 @@ import React from 'react';
 import {Card,Button} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const Producto = ({data}) =>((
+const name="Mermelada de Arándanos";
+const photo= "http://tiendaonline2020.herokuapp.com/img/mermarandanos.jpg";
+const description = "Mermelada de arándanos cosechados en el Himalaya, recolectadas manualmente.";
+const price= "$1000";
 
+const Producto = ({data:{name,photo,description,price}}) =>((
+    
     <Card style={{ width: '18rem' }}>
-    <Card.Img variant="top" src="http://tiendaonline2020.herokuapp.com/img/mermarandanos.jpg" />
+    <Card.Img variant="top" src= {photo} />
     <Card.Body>
-      <Card.Title>Mermelada de Arándanos</Card.Title>
+        <Card.Title>{name}</Card.Title>
       <Card.Text>
-      Mermelada de arándanos cosechados en el Himalaya, recolectadas manualmente.
+      {description}
       </Card.Text>
-      <Button variant="primary">$1000</Button>
+        <Button variant="primary">${price}</Button>
     </Card.Body>
   </Card>
   )

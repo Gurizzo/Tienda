@@ -1,7 +1,7 @@
-import axios from 'react-axios';
-const API_URL= 'http://tiendaonline2020.herokuapp.com/api'
+import axios from 'react-axios'
+export const API_URL= 'http://tiendaonline2020.herokuapp.com/api'
 
-export function signUp (userName,pass) {
+/*export function signUp (userName,pass) {
 const url= `${API_URL}/user/register`;
 fetch (url,{
     method:'POST',
@@ -44,4 +44,25 @@ export function login (userName,pass){
 
 export function getProducts (){
 return axios.get(`${API_URL}/product/all`)
+}*/
+
+
+
+export function getProducts (){
+    let respuesta=[];
+    const url=`${API_URL}/product/all`;
+        
+    fetch(url).then(resolve => {
+        return resolve.json();
+    }).then(data =>{
+        
+        respuesta=data;
+        console.log(respuesta);
+        
+        
+      
+        
+    })
+    console.log(respuesta);
+    return respuesta;
 }
