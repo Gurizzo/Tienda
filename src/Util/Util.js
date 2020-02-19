@@ -6,7 +6,7 @@
            "name":"Poción Multijugos",
            "price":111.6,
            "count":0
-        }
+        },
     
 ]
 
@@ -19,11 +19,15 @@ export function filterProductsByName(products,name) {
 
 export function addToCart (cart,item) {
 
-    return cart.filter(cart =>{
-        if(cart._id===item._id cart.push(item)){
-
-        }
-    })
+if(cart.id.includes(item.id)){
+    const index =  cart.id.findindex(product => product ===item.id)
+    cart[index].count++;
+    return true;
+    }
+    else{
+        cart.push
+    }
+}
     
 return true;
 }
