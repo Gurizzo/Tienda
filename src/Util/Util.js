@@ -26,11 +26,11 @@ if(cart.id.includes(item.id)){
     }
     else{
         cart.push
+        return false;
     }
 }
     
-return true;
-}
+
 
 export function countCartItems (cart) {
 
