@@ -15,11 +15,7 @@ fetch (url,{
 })
 
 };
-/*
-signUp('prueba','prueba').then(res =>res.JSON())
-    .cath(console.error( error=>console.error('Error:',error))
-    .then(response =>console.log('Succes',response)));
-  */  
+
 
 
 export function login (userName,pass){
@@ -39,12 +35,7 @@ export function login (userName,pass){
     };
     
 
-/*
 
-
-export function getProducts (){
-return axios.get(`${API_URL}/product/all`)
-}*/
 
 
 
@@ -56,3 +47,12 @@ export function getProducts (){
         return resolve.json();
     })
 }
+
+
+
+/*
+
+
+export function getProducts (){
+return axios.get(`${API_URL}/product/all`)
+}*/

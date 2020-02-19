@@ -38,7 +38,7 @@ class ProductList extends Component{
         
         console.log(this.state.datos);
         const listItems = this.state.datos.map((dato) => <Producto key={dato._id} data={dato}> </Producto>  );
-        debugger
+        
         return (
             
         <div>
