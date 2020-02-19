@@ -15,11 +15,11 @@ fetch (url,{
 })
 
 };
-
+/*
 signUp('prueba','prueba').then(res =>res.JSON())
     .cath(console.error( error=>console.error('Error:',error))
     .then(response =>console.log('Succes',response)));
-    
+  */  
 
 
 export function login (userName,pass){
@@ -52,17 +52,7 @@ export function getProducts (){
     let respuesta=[];
     const url=`${API_URL}/product/all`;
         
-    fetch(url).then(resolve => {
+    return fetch(url).then(resolve => {
         return resolve.json();
-    }).then(data =>{
-        
-        respuesta=data;
-        console.log(respuesta);
-        
-        
-      
-        
     })
-    console.log(respuesta);
-    return respuesta;
 }

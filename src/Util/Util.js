@@ -18,27 +18,29 @@ export function filterProductsByName(products,name) {
 }
 
 export function addToCart (cart,item) {
-
-if(cart.id.includes(item.id)){
-    const index =  cart.id.findindex(product => product ===item.id)
-    cart[index].count++;
-    return true;
+    let newCart = [...cart]
+    const index =  newCart.findindex(product => product._id ===item._id)
+    if(index >= 0){
+        newCart[index].count += item.count;
     }
     else{
-        cart.push
-        return false;
+        newCart.push(item)
     }
+
+    return newCart;
 }
     
 
 
 export function countCartItems (cart) {
+    let contar=0;
+    contar = cart.map((obj) => contar+ obj.count);
 
-return cart.length();
+return contar;
 }
 
 export function countCartTotalAmount (cart) {
-    const total=0;
+    let total=0;
     total= cart.map((obj) => obj.count* obj.price);
 return total;
 }

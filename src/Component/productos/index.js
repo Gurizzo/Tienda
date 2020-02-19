@@ -18,11 +18,8 @@ class ProductList extends Component{
      }
 
      handleUpdateClick=() =>{
-        const url=`${API_URL}/product/all`;
         
-        fetch(url).then(resolve => {
-            return resolve.json();
-        }).then(data =>{
+        getProducts().then(data =>{
            
             
             console.log(data)
