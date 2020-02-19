@@ -1,7 +1,7 @@
 import axios from 'react-axios'
 export const API_URL= 'http://tiendaonline2020.herokuapp.com/api'
 
-/*export function signUp (userName,pass) {
+export function signUp (userName,pass) {
 const url= `${API_URL}/user/register`;
 fetch (url,{
     method:'POST',
@@ -39,7 +39,7 @@ export function login (userName,pass){
     };
     
 
-
+/*
 
 
 export function getProducts (){
