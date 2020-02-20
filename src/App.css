@@ -5,6 +5,12 @@
   margin-top: 5%;
 }
 
+.Producto{
+  background-color: #282c34;
+  float: left;
+
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
