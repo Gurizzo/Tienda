@@ -1,6 +1,6 @@
 import React from 'react';
 import '../App.css';
-import {Card,Button} from 'react-bootstrap';
+import {Card,Button,Spinner} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -22,6 +22,8 @@ const Producto = ({data:{name,photo,description,price}}) =>((
   </div>
   )
   );
+
+
 
 export default Producto;
 

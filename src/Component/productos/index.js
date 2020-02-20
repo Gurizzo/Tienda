@@ -1,6 +1,8 @@
 import React,{Component} from 'react';
 import {getProducts,API_URL, login} from '../Service/Services';
 import Producto from '../Producto';
+import {Spinner} from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
@@ -37,16 +39,22 @@ class ProductList extends Component{
 
     render(){
         
-        console.log(this.state.datos);
+        
         const listItems = this.state.datos.map((dato) => <Producto key={dato._id} data={dato}> </Producto>  );
         
-        return (
+        if(this.state.datos.length<=0){
+            console.log("entre")
+            return <div><Spinner animation="grow" variant="primary" /></div>
+        }else{
+            return (
            
-        <div>
-            hola
-            {listItems}
-            </div>
-            )
+                <div>
+                    
+                    {listItems}
+                    </div>
+                    )
+        }
+
          
     }
 
