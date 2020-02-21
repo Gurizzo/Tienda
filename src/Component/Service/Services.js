@@ -18,10 +18,10 @@ fetch (url,{
 
 
 
-export function login (userName,pass){
+export const login = async (userName,pass)=>{
 
     const url= `${API_URL}/user/login`;
-    fetch (url,{
+    const promise = fetch (url,{
         method:'POST',
         body: JSON.stringify({
             email:userName,
@@ -31,8 +31,9 @@ export function login (userName,pass){
             'Content-Type' : 'application/json' 
         }
     })
+    return await promise;
     
-    };
+};
     
 
 

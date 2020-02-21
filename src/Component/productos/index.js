@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
+
 class ProductList extends Component{
 
     constructor(props){
@@ -44,7 +45,7 @@ class ProductList extends Component{
         
         if(this.state.datos.length<=0){
             console.log("entre")
-            return <div><Spinner animation="grow" variant="primary" /></div>
+            return <div className="d-flex justify-content-center"><Spinner  animation="grow" variant="primary" /></div>
         }else{
             return (
            
