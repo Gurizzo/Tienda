@@ -13,8 +13,9 @@
 export function filterProductsByName(products,name) {
 
     return products.filter(product =>{
-        return products.name.ToLowerCase().includes( name.ToLowerCase()) }
+        return product.name.toLowerCase().includes( name.toLowerCase()) }
         );
+        
 }
 
 export function addToCart (cart,item) {
