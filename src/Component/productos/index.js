@@ -58,6 +58,7 @@ class ProductList extends Component{
 
              listItems = this.state.products.map((product) => <Producto key={product._id} data={product}> </Producto>  );
             //Valida que no llegue undefined al filtro
+            
         }else{
 
             const filtred= filterProductsByName(this.state.products,this.state.search);
