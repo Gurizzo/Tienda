@@ -20,7 +20,7 @@ class ProductList extends Component{
         }
     }
     handleChange=(event,search)=>{ 
-    
+        console.log(search);
         this.setState({
           [search]:event.target.value
         })
