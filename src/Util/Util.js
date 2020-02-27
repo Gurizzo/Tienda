@@ -19,10 +19,28 @@ export function filterProductsByName(products,name) {
 }
 
 export function addToCart (cart,item) {
-    let newCart = [...cart]
-    const index =  newCart.findindex(product => product._id ===item._id)
+    if(cart===undefined){
+        
+        debugger;
+        return item;
+    }
+    console.log(item);
+    
+    let newCart = cart
+    debugger;
+    const index =  newCart.findIndex(cart => cart._id === item[0]._id)
+    console.log(index);
+    
     if(index >= 0){
-        newCart[index].count += item.count;
+        console.log(newCart[index]);
+        if(newCart[index].count===undefined){
+            
+            newCart[index].count=item[0].count;
+        }
+        
+        const valor= newCart[index].count+item[0].count;
+        
+        newCart[index].count = valor;
     }
     else{
         newCart.push(item)
