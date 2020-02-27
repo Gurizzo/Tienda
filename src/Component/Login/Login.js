@@ -1,28 +1,25 @@
 import React, {Component} from 'react';
-//import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button,Form} from "react-bootstrap";
 import {login} from "../Service/Services.js"
+import ProductList from "../productos/index.js"
+import Registro from "../Registro/Registro.js"
 
 
 export default class Login extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-     
-        user:'',
-        password:''
-     
-     }
+    this.state = { }
   }
 
   handleSubmit=(event)=>{ 
-    
+    debugger;
     event.preventDefault();
     login(this.state.user,this.state.password)
     .then(res=>{
-      debugger
+      this.setState({
+      login:true      
     })
-    //hacer login con el estado de password y user
+    })
+   
   }
 
   handleChange=(event,input)=>{ 
@@ -32,14 +29,8 @@ export default class Login extends Component {
     })
   }
 
- registrar(event){ //Accion de enlace.
-  alert("Registro");
-}
-
   render() { 
-    
-    
-    return (
+      return (
 
     <form onSubmit={(event)=>{this.handleSubmit(event)}}>
     <div className="container">
@@ -55,7 +46,7 @@ export default class Login extends Component {
 
   <div className="container" Style="background-color:#f1f1f1">
     <button type="button" className="cancelbtn">Cancel</button>
-    <span className="psw">Register <a href="www.google.com">SignUp</a></span>
+    <span className="psw" >Register <a href="#">SignUp</a></span>
   </div>
 </form>
 
@@ -63,8 +54,7 @@ export default class Login extends Component {
 
 
       );
-  }
+    }
+  
 }
  
- 
-
