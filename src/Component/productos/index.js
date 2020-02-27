@@ -27,18 +27,10 @@ class ProductList extends Component{
         })
         
       }
-      ShopClick = (_id,name,price,count)=>{
-        const producto=[
-            {
-                _id:_id,
-                name:name,
-                price:price,
-                count:count
-            }
-        ];
+
+      ShopClick = (product,count) => {
         
-        console.log(name);
-        let cart=addToCart(this.state.cart,producto);
+        let cart = addToCart(this.state.cart, {...product, count});
         this.setState({
             cart:cart
         })
@@ -69,20 +61,20 @@ class ProductList extends Component{
     }
 
     render(){
-        console.log(this.state.cart);
         
+        console.log(this.state.cart);
 
         let listItems=[]; //Lista de productos a imprimir de <Producto>
 
         if(this.state.products.length<0 || this.state.search===""){
 
-             listItems = this.state.products.map((product) => <Producto key={product._id} data={product} onShopClick={()=> this.ShopClick(product._id,product.name,product.price,3)}> </Producto>  );
+             listItems = this.state.products.map((product) => <Producto key={product._id} data={product} onShopClick={()=> this.ShopClick(product,3)}> </Producto>  );
             //Valida que no llegue undefined al filtro
             
         }else{
 
             const filtred= filterProductsByName(this.state.products,this.state.search);
-             listItems = filtred.map((product) => <Producto key={product._id} data={product} onShopClick={()=> this.ShopClick(product._id,product.name,product.price,1)} > </Producto>  );
+             listItems = filtred.map((product) => <Producto key={product._id} data={product} onShopClick={()=> this.ShopClick(product,1)} > </Producto>  );
             //Realiza el filtrado y valida undefined
 
         }
@@ -108,7 +100,7 @@ class ProductList extends Component{
                     </div>
                     
 
-                    <Carrito  props={this.state.cart}></Carrito>
+                    <Carrito  carrito={this.state.cart}></Carrito>
                     </div>
                 
                     

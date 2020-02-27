@@ -19,28 +19,12 @@ export function filterProductsByName(products,name) {
 }
 
 export function addToCart (cart,item) {
-    if(cart===undefined){
-        
-        debugger;
-        return item;
-    }
-    console.log(item);
-    
-    let newCart = cart
-    debugger;
-    const index =  newCart.findIndex(cart => cart._id === item[0]._id)
-    console.log(index);
-    
+   
+    let newCart = [...cart]
+    const index =  newCart.findIndex(cart => cart._id === item._id)
+ 
     if(index >= 0){
-        console.log(newCart[index]);
-        if(newCart[index].count===undefined){
-            
-            newCart[index].count=item[0].count;
-        }
-        
-        const valor= newCart[index].count+item[0].count;
-        
-        newCart[index].count = valor;
+        newCart[index].count += item.count
     }
     else{
         newCart.push(item)
