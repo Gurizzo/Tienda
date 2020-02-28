@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {login} from "../Service/Services.js"
 import ProductList from "../productos/index.js"
-import Registro from "../Registro/Registro.js"
+//import Registro from "../Registro/Registro.js"
 
 
 export default class Login extends Component {
@@ -15,21 +15,27 @@ export default class Login extends Component {
     event.preventDefault();
     login(this.state.user,this.state.password)
     .then(res=>{
+      
       this.setState({
-      login:true      
+       user:this.state.user,
+       password:this.state.password,
+       done:true
+          
     })
     })
    
   }
 
   handleChange=(event,input)=>{ 
-    
+    console.log(event, input)   
     this.setState({
       [input]:event.target.value
     })
   }
 
   render() { 
+  
+    if(!this.state.done){
       return (
 
     <form onSubmit={(event)=>{this.handleSubmit(event)}}>
@@ -46,15 +52,17 @@ export default class Login extends Component {
 
   <div className="container" Style="background-color:#f1f1f1">
     <button type="button" className="cancelbtn">Cancel</button>
-    <span className="psw" >Register <a href="#">SignUp</a></span>
+    <span className="psw" >Register <a href="/Registro">SignUp</a></span>
   </div>
 </form>
 
+  );}
 
-
-
-      );
-    }
+  else{
+    return(<ProductList/>)
+    
+  }
+}
   
 }
  

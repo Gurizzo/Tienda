@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {signUp} from "../Service/Services.js"
+import Login from '../Login/Login.js';
 
 
 export default class Registro extends Component {
@@ -15,7 +16,12 @@ export default class Registro extends Component {
     event.preventDefault();
     signUp(this.state.user,this.state.password)
     .then(res=>{
-      alert('registro hecho!!')
+      this.setState({
+       user:this.state.user,
+       password:this.state.password,
+       done:true
+           
+    })
     })
     //hacer login con el estado de password y user
   }
@@ -24,11 +30,14 @@ export default class Registro extends Component {
     
     this.setState({
       [input]:event.target.value
+      
     })
   }
 
 
   render() { 
+    if(!this.sate.done){
+    
     return (
     <form onSubmit={(event)=>{this.handleSubmit(event)}}>
     <div className="container">
@@ -48,10 +57,12 @@ export default class Registro extends Component {
   </div>
 </form>
 
-
-
-
-      );
+    );
+  }
+  else{
+    return( <Login/>)
+  
+  }
   }
 }
  
