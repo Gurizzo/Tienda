@@ -7,7 +7,7 @@ class Carrito extends Component {
 
     
     render() {
-        let cantidadProductos=countCartItems(this.props.cart);
+        let cantidadProductos=countCartItems(this.props.carrito);
         let subTotal =countCartTotalAmount(this.props.carrito);
         let listItems
         
