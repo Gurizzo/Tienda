@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import {getProducts} from '../Service/Services';
-import {filterProductsByName,addToCart, countCartItems} from '../../Util/Util';
+import {filterProductsByName,addToCart, DeleteItem} from '../../Util/Util';
 import Producto from './Producto';
 import {Spinner} from 'react-bootstrap';
 import Carrito from './Carrito';
@@ -37,6 +37,13 @@ class ProductList extends Component{
         
         
         
+      }
+      DeleteItemClick =(product) =>{
+          console.log(product);
+          let cart = DeleteItem(this.state.cart,product);
+          this.setState({
+              cart:cart
+          })
       }
 
     componentDidMount() {
@@ -101,7 +108,7 @@ class ProductList extends Component{
                     </div>
                     
 
-                    <Carrito  carrito={this.state.cart}></Carrito>
+                    <Carrito  carrito={this.state.cart} ></Carrito>
                     </div>
                 
                     

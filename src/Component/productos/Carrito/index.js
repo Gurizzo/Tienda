@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import {countCartTotalAmount,countCartItems} from '../../../Util/Util';
+import {countCartTotalAmount,countCartItems,DeleteItem} from '../../../Util/Util';
 
 class Carrito extends Component {
 
-    
+
+
     
     render() {
-        let cantidadProductos=countCartItems(this.props.carrito);
+        let cantidadProductos=countCartItems(this.props.cart);
         let subTotal =countCartTotalAmount(this.props.carrito);
         let listItems
         
@@ -19,7 +20,7 @@ class Carrito extends Component {
        
        <td>{product.count}</td>
     <td className="text-right">$ {product.price}</td>
-       <td className="text-right"><button className="btn btn-sm btn-danger"><i className="fa fa-trash"></i> </button> </td>
+       <td className="text-right"><button className="btn btn-sm btn-danger"  >Eliminar<i className="fa fa-trash"></i> </button> </td>
        </tr> 
        );
     }
