@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import {getProducts} from '../Service/Services';
-import {filterProductsByName,addToCart} from '../../Util/Util';
+import {filterProductsByName,addToCart, countCartItems} from '../../Util/Util';
 import Producto from './Producto';
 import {Spinner} from 'react-bootstrap';
 import Carrito from './Carrito';
@@ -29,7 +29,7 @@ class ProductList extends Component{
       }
 
       ShopClick = (product,count) => {
-        
+        console.log(product);
         let cart = addToCart(this.state.cart, {...product, count});
         this.setState({
             cart:cart
@@ -57,13 +57,14 @@ class ProductList extends Component{
 
         })
         
-
+        
     }
+
 
     render(){
         
-        console.log(this.state.cart);
-
+        
+        let count=0;
         let listItems=[]; //Lista de productos a imprimir de <Producto>
 
         if(this.state.products.length<0 || this.state.search===""){
@@ -74,7 +75,7 @@ class ProductList extends Component{
         }else{
 
             const filtred= filterProductsByName(this.state.products,this.state.search);
-             listItems = filtred.map((product) => <Producto key={product._id} data={product} onShopClick={()=> this.ShopClick(product,1)} > </Producto>  );
+             listItems = filtred.map((product) => <Producto key={product._id} data={product} onShopClick={()=> this.ShopClick(product,1)}  > </Producto>  );
             //Realiza el filtrado y valida undefined
 
         }

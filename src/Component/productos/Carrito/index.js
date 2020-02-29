@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
+import {countCartTotalAmount,countCartItems} from '../../../Util/Util';
 
 class Carrito extends Component {
 
     
+    
     render() {
+        let cantidadProductos=countCartItems(this.props.carrito);
+        let subTotal =countCartTotalAmount(this.props.carrito);
         let listItems
+        
        if(this.props.carrito.length>0){
 
         listItems = this.props.carrito.map((product) =>   
@@ -12,7 +17,7 @@ class Carrito extends Component {
        <td><img src={product.photo} style={{ width: '5rem', height:'5rem' }} /> </td>
        <td>{product.name}</td>
        
-       <td><input className="form-control" type="text" value="1" /></td>
+       <td>{product.count}</td>
     <td className="text-right">$ {product.price}</td>
        <td className="text-right"><button className="btn btn-sm btn-danger"><i className="fa fa-trash"></i> </button> </td>
        </tr> 
@@ -37,26 +42,24 @@ class Carrito extends Component {
                         {listItems}
                         <tr>
                             <td></td>
-                            <td></td>
-                            <td></td>
-                            
+                            <td>Cantidad productos</td>
+                            <td>{cantidadProductos}</td>                          
                             <td>Sub-Total</td>
-                            <td className="text-right">255,90 $</td>
+                             <td className="text-right">{subTotal}$</td>
                         </tr>
                         <tr>
                             <td></td>
                             <td></td>
                             <td></td>
-                            
                             <td>iva</td>
-                            <td className="text-right">6,90 $</td>
+                            <td className="text-right">{subTotal*0.22}$</td>
                         </tr>
                         <tr>
                             <td></td>
                             <td></td>
                             <td></td>
                             <td><strong>Total</strong></td>
-                            <td className="text-right"><strong>346,90 $</strong></td>
+                            <td className="text-right"><strong>{subTotal*1.22}$</strong></td>
                         </tr>
                     </tbody>
                 </table>

@@ -17,14 +17,16 @@ export default class App extends Component {
 
   render() {
     return (
-      
+
+      <ProductList></ProductList>
+      /*
       <BrowserRouter>
         <Switch>
              <Route exact path="/Login" component={Login}/>
              <Route exact path="/ProductList" component={ProductList}/>
              <Route exact path="/Registro" component={Registro}/>
         </Switch>
-    </BrowserRouter>
+    </BrowserRouter>*/
    
      
     );

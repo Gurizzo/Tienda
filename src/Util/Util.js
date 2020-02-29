@@ -37,13 +37,13 @@ export function addToCart (cart,item) {
 
 export function countCartItems (cart) {
     let contar=0;
-    contar = cart.map((obj) => contar+ obj.count);
+    cart.map((obj) => contar+= obj.count);
 
 return contar;
 }
 
 export function countCartTotalAmount (cart) {
     let total=0;
-    total= cart.map((obj) => obj.count* obj.price);
+    cart.map((obj) => total +=obj.count* obj.price);
 return total;
 }
