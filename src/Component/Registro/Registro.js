@@ -7,6 +7,10 @@ export default class Registro extends Component {
   constructor(props) {
     super(props);
     this.done = false
+    this.state={
+      user:'',
+      password:''
+    }
    
   }
 
@@ -18,6 +22,10 @@ export default class Registro extends Component {
         if (res.status < 400) {
           console.log('Registrado ok!!')
           this.done = true;
+          this.setState({
+            user: this.state.user,
+            password: this.state.password
+          })
         
         }
 
