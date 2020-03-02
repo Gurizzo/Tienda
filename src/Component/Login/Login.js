@@ -38,6 +38,8 @@ export default class Login extends Component {
       return (
 
     <form onSubmit={(event)=>{this.handleSubmit(event)}}>
+      <h1>Bienvenido</h1>
+      <h4>Login</h4>
     <div className="container">
     <label for="uname"><b>Username</b></label>
     <input type="text" placeHolder="Enter Username" value={this.state.user} name="uname" required onChange={(event)=>{this.handleChange(event,'user')}}/>

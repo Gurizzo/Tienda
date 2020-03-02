@@ -1,9 +1,11 @@
 import axios from 'react-axios'
 export const API_URL= 'http://tiendaonline2020.herokuapp.com/api'
 
-export function signUp (userName,pass) {
+
+
+export const signUp= async (userName,pass)=> {
 const url= `${API_URL}/user/register`;
-fetch (url,{
+    const promise = fetch (url,{
     method:'POST',
     body: JSON.stringify({
         email:userName,
@@ -13,7 +15,7 @@ fetch (url,{
         'Content-Type' : 'application/json' 
     }
 })
-
+    return await promise;
 };
 
 
