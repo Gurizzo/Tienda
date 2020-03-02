@@ -34,13 +34,15 @@ export function addToCart (cart,item) {
 }
 
 export function DeleteItem(cart,item){
-
+    console.log(cart)
     let newCart = [...cart]
-    cart.map((obj) =>obj._id!==item._id  ? newCart.push(obj) : {
+    debugger;
+   cart.map((obj) =>obj._id!==item._id  ? newCart.push(obj) : {
 
-    })
-    return newCart;
+    }) 
+        return newCart;
 }
+
     
 
 

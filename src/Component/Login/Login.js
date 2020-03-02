@@ -7,27 +7,26 @@ import ProductList from "../productos/index.js"
 export default class Login extends Component {
   constructor(props) {
     super(props);
-    this.state = { }
-  }
+    this.state={}
+      }
 
   handleSubmit=(event)=>{ 
-    debugger;
+    
     event.preventDefault();
     login(this.state.user,this.state.password)
     .then(res=>{
+     
+      if(res.status<400){
+      console.log('Ingreso correcto')
+      this.setState({done:true})}    
+    })
+    .catch(error => {console.error('Error:', error)
+      });
       
-      this.setState({
-       user:this.state.user,
-       password:this.state.password,
-       done:true
-          
-    })
-    })
-   
   }
 
   handleChange=(event,input)=>{ 
-    console.log(event, input)   
+    
     this.setState({
       [input]:event.target.value
     })

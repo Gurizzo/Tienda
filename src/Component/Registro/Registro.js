@@ -6,9 +6,12 @@ import Login from '../Login/Login.js';
 export default class Registro extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-     
-     }
+    this.done = false
+    this.state={
+      user:'',
+      password: '',
+      done:''
+    }
   }
 
   handleSubmit=(event)=>{ 
@@ -16,14 +19,17 @@ export default class Registro extends Component {
     event.preventDefault();
     signUp(this.state.user,this.state.password)
     .then(res=>{
-      this.setState({
+      if(res.status<400)
+      {this.setState({
        user:this.state.user,
        password:this.state.password,
        done:true
            
+    })}
+    
     })
-    })
-    //hacer login con el estado de password y user
+    .catch(error => console.error('Error:', error));
+    
   }
 
   handleChange=(event,input)=>{ 
@@ -36,7 +42,8 @@ export default class Registro extends Component {
 
 
   render() { 
-    if(!this.sate.done){
+
+    if(this.done===false){
     
     return (
     <form onSubmit={(event)=>{this.handleSubmit(event)}}>

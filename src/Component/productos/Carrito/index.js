@@ -2,8 +2,26 @@ import React, { Component } from 'react';
 import {countCartTotalAmount,countCartItems,DeleteItem} from '../../../Util/Util';
 
 class Carrito extends Component {
+    constructor(props){
+        super(props)
+        this.state={}
+    }
 
-
+   /*  delate_test=(cart,item)=>{
+            console.log('elcart',cart)
+            debugger;
+            let newCart = [...cart]
+            debugger;
+           cart.map((obj) =>obj._id!==item._id  ? newCart.push(obj) : {
+        
+            }) 
+                return newCart;
+        } */
+        
+        delate_test=()=>{
+            alert('llega!!!')
+        }
+    
 
     
     render() {
@@ -20,7 +38,7 @@ class Carrito extends Component {
        
        <td>{product.count}</td>
     <td className="text-right">$ {product.price}</td>
-       <td className="text-right"><button className="btn btn-sm btn-danger"  >Eliminar<i className="fa fa-trash"></i> </button> </td>
+       <td className="text-right"><button className="btn btn-sm btn-danger" onClick={this.delate_test()}  >Eliminar</button> </td>
        </tr> 
        );
     }
