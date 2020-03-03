@@ -34,13 +34,8 @@ export function addToCart (cart,item) {
 }
 
 export function DeleteItem(cart,item){
-    console.log(cart)
-    let newCart = [...cart]
-    debugger;
-   cart.map((obj) =>obj._id!==item._id  ? newCart.push(obj) : {
-
-    }) 
-        return newCart;
+    console.log(cart,"cart",item,"item")
+    return cart.filter(c => c._id  !== item._id)
 }
 
     

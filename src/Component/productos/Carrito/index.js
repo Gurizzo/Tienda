@@ -7,31 +7,20 @@ class Carrito extends Component {
         this.state = {}
     }
 
-    /*  delate_test=(cart,item)=>{
-             console.log('elcart',cart)
-             debugger;
-             let newCart = [...cart]
-             debugger;
-            cart.map((obj) =>obj._id!==item._id  ? newCart.push(obj) : {
-         
-             }) 
-                 return newCart;
-         } */
-
-    delate_test = () => {
-        alert('llega!!!')
-    }
+ 
 
 
 
     render() {
+        const {onDeleteItemClick}=(this.props)
         let cantidadProductos = countCartItems(this.props.carrito);
         let subTotal = countCartTotalAmount(this.props.carrito);
         let listItems
 
         if (this.props.carrito.length > 0) {
-
+            
             listItems = this.props.carrito.map((product) =>
+            
                 <tr key={product._id}>
                     <td><img src={product.photo} style={{ width: '5rem', height: '5rem' }} /> </td>
                     <td>{product.name}</td>
@@ -39,7 +28,7 @@ class Carrito extends Component {
                     <td>{product.count}</td>
                     <td className="text-right">$ {product.price}</td>
                     <td className="text-right">
-                        <button className="btn btn-sm btn-danger" onClick={this.delate_test()}  >Eliminar</button>
+                        <button className="btn btn-sm btn-danger" onClick={() => onDeleteItemClick(product)}>Eliminar</button>
                     </td>
                 </tr>
             );
@@ -66,21 +55,22 @@ class Carrito extends Component {
                             <td>Cantidad productos</td>
                             <td>{cantidadProductos}</td>
                             <td>Sub-Total</td>
-                            <td className="text-right">{subTotal}$</td>
+                            <td className="text-right">{parseFloat(subTotal).toFixed(2)}$</td>
                         </tr>
                         <tr>
                             <td></td>
                             <td></td>
                             <td></td>
                             <td>iva</td>
-                            <td className="text-right">{subTotal * 0.22}$</td>
+                            <td className="text-right">{parseFloat(subTotal * 0.22).toFixed(2)}$</td>
                         </tr>
                         <tr>
                             <td></td>
                             <td></td>
                             <td></td>
                             <td><strong>Total</strong></td>
-                            <td className="text-right"><strong>{subTotal * 1.22}$</strong></td>
+                            <td className="text-right"><strong>{parseFloat(subTotal * 1.22).toFixed(2)}$</strong></td>
+                           
                         </tr>
                     </tbody>
                 </table>

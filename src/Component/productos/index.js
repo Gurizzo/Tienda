@@ -39,6 +39,7 @@ class ProductList extends Component{
         
       }
       DeleteItemClick =(product) =>{
+          debugger
           console.log(product);
           let cart = DeleteItem(this.state.cart,product);
           this.setState({
@@ -76,13 +77,13 @@ class ProductList extends Component{
 
         if(this.state.products.length<0 || this.state.search===""){
 
-             listItems = this.state.products.map((product) => <Producto key={product._id} data={product} onShopClick={()=> this.ShopClick(product,3)}> </Producto>  );
+             listItems = this.state.products.map((product) => <Producto key={product._id} data={product} onShopClick={this.ShopClick} > </Producto>  );
             //Valida que no llegue undefined al filtro
             
         }else{
 
             const filtred= filterProductsByName(this.state.products,this.state.search);
-             listItems = filtred.map((product) => <Producto key={product._id} data={product} onShopClick={()=> this.ShopClick(product,1)}  > </Producto>  );
+             listItems = filtred.map((product) => <Producto key={product._id} data={product} onShopClick={this.ShopClick}  > </Producto>  );
             //Realiza el filtrado y valida undefined
 
         }
@@ -108,7 +109,7 @@ class ProductList extends Component{
                     </div>
                     
 
-                    <Carrito  carrito={this.state.cart} ></Carrito>
+                    <Carrito  carrito={this.state.cart} onDeleteItemClick={this.DeleteItemClick}></Carrito>
                     </div>
                 
                     

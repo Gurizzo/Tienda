@@ -12,14 +12,16 @@ class Producto extends Component{
       photo:props.data.photo,
       description:props.data.description,
       price:props.data.price,
-      count:0
+      count:1
+      
     };
     
   }
   handleChange=(event,input)=>{ 
-    console.log( input)   
+    console.log( input)
+    
     this.setState({
-      [input]:event.target.value
+      [input]:parseInt(event.target.value)
     })
   }
 
@@ -39,13 +41,11 @@ render(){
       </Card.Text>
 
       <InputGroup className="mb-3">
-    <InputGroup.Prepend>
-      <Button variant="outline-secondary">Button</Button>
-    </InputGroup.Prepend  >
-    <FormControl aria-describedby="basic-addon1" value={this.state.count} name="count" required onChange={(event)=>{this.handleChange(event,'count')}} />
+   
+    <strong>Cantidad</strong><input type="number"  aria-describedby="basic-addon1" value={this.state.count} name="count" required onChange={(event)=>{this.handleChange(event,'count')}} />
   </InputGroup>
 
-        <Button variant="primary" onClick={onShopClick}>${this.state.price}</Button>
+        <Button variant="primary" onClick={() => onShopClick(this.props.data,this.state.count)}>${this.state.price}</Button>
     </Card.Body>
     </Card>
 
