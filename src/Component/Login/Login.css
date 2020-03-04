@@ -1,0 +1,66 @@
+
+
+
+.login{
+    margin-top: 5%;
+    display: flex;
+    align-items: center;
+    flex-direction: column; 
+    justify-content: center;
+    width: 100%;
+    min-height: 100%;
+    padding: 20px;
+    
+}
+
+a {
+    color: #92badd;
+    display:inline-block;
+    text-decoration: none;
+    font-weight: 400;
+  }
+  input{
+   
+    text-align: center;
+    
+    font-size: 16px;
+    
+    
+}
+label{
+    background-color: #f6f6f6;
+    border-top: 1px solid #dce8f1;
+    padding: 25px;
+    text-align: center;
+    -webkit-border-radius: 0 0 10px 10px;
+    border-radius: 48px 48px 48px 48px;
+}
+
+
+Form{
+   
+    background: #fff;
+    padding: 30px;
+    width: 90%;
+    max-width: 450px;
+    position: relative;
+    padding: 0px;
+    -webkit-box-shadow: 19px 20px 21px 10px rgba(0,0,0,0.75);
+-moz-box-shadow: 19px 20px 21px 10px rgba(0,0,0,0.75);
+box-shadow: 19px 20px 21px 10px rgba(0,0,0,0.75);
+    text-align: center;
+    border-radius: 48px 48px 48px 48px;
+-moz-border-radius: 48px 48px 48px 48px;
+-webkit-border-radius: 48px 48px 48px 48px;
+border: 3px solid #4a32fc;
+}
+
+.registro{
+    background-color: #f6f6f6;
+    border-top: 1px solid #dce8f1;
+    margin-top: 10px;
+    padding: 25px;
+    text-align: center;
+    -webkit-border-radius: 0 0 10px 10px;
+    border-radius: 0 0 48px 48px;
+}

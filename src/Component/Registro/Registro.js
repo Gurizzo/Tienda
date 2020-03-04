@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { signUp } from "../Service/Services.js"
 import Login from '../Login/Login.js';
+import {Form,Button} from 'react-bootstrap';
 
 
 export default class Registro extends Component {
@@ -48,23 +49,34 @@ export default class Registro extends Component {
     if (this.done === false) {
 
       return (
-        <form onSubmit={(event) => { this.handleSubmit(event) }}>
-          <div className="container">
-            <h3>Registro</h3>
-            <label for="uname"><b>Username</b></label>
-            <input type="text" placeHolder="Enter Username" value={this.state.user} name="uname" required onChange={(event) => { this.handleChange(event, 'user') }} />
-            <br />
-            <label for="psw"><b>Password</b></label>
-            <input type="password" placeHolder="Enter Password" value={this.state.password} name="psw" required onChange={(event) => { this.handleChange(event, 'password') }} />
-            <br />
+        
+        <div className="login">
+          <h3>Registro</h3>
+        <Form  onSubmit={(event)=>{this.handleSubmit(event)}}>
+        <Form.Group controlId="formBasicEmail">
+          <Form.Label>Correo Electronico</Form.Label>
+          <Form.Control type="email" placeholder="Ingresar correo electronico" value={this.state.user} name="uname" required onChange={(event)=>{this.handleChange(event,'user')}}/>
+          <Form.Text className="text-muted">
+        <br></br>
+          </Form.Text>
+        </Form.Group>
+      
+        <Form.Group controlId="formBasicPassword">
+          <Form.Label>Contraseña</Form.Label>
+          <Form.Control type="password" placeholder=" Ingresar contraseña" value={this.state.password} name="psw" required onChange={(event)=>{this.handleChange(event,'password')}} />
+        </Form.Group>
+        <Button variant="primary" type="submit">
+          Registrar
+        </Button>
+        
+        <div className="registro">
+      <a class="underlineHover" href="/">Volver</a>
+    </div>
+      </Form>
 
-            <button type="submit">Registro</button>
-          </div>
+      </div>
 
-          <div className="container" Style="background-color:#f1f1f1">
-            <button type="button" className="cancelbtn">Cancel</button>
-          </div>
-        </form>
+
 
       );
     }

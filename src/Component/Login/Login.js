@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import {login} from "../Service/Services.js"
 import ProductList from "../productos/index.js"
+import {Form,Button} from 'react-bootstrap';
+import './Login.css';
+
 //import Registro from "../Registro/Registro.js"
 
 
@@ -36,26 +39,32 @@ export default class Login extends Component {
   
     if(!this.state.done){
       return (
+<div className="login">
+    <h3>Login</h3>
+        <Form  onSubmit={(event)=>{this.handleSubmit(event)}}>
+        <Form.Group controlId="formBasicEmail">
+          <Form.Label>Correo Electronico</Form.Label>
+          <Form.Control type="email" placeholder="Ingresar correo electronico" value={this.state.user} name="uname" required onChange={(event)=>{this.handleChange(event,'user')}}/>
+          <Form.Text className="text-muted">
+        <br></br>
+          </Form.Text>
+        </Form.Group>
+      
+        <Form.Group controlId="formBasicPassword">
+          <Form.Label>Contraseña</Form.Label>
+          <Form.Control type="password" placeholder=" Ingresar contraseña" value={this.state.password} name="psw" required onChange={(event)=>{this.handleChange(event,'password')}} />
+        </Form.Group>
+        <Button variant="primary" type="submit">
+          Ingresar
+        </Button>
+        
+        <div className="registro">
+      <a class="underlineHover" href="/Registro">Registrar</a>
+    </div>
+      </Form>
 
-    <form onSubmit={(event)=>{this.handleSubmit(event)}}>
-      <h1>Bienvenido</h1>
-      <h4>Login</h4>
-    <div className="container">
-    <label for="uname"><b>Username</b></label>
-    <input type="text" placeHolder="Enter Username" value={this.state.user} name="uname" required onChange={(event)=>{this.handleChange(event,'user')}}/>
-    <br/>
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeHolder="Enter Password" value={this.state.password} name="psw" required onChange={(event)=>{this.handleChange(event,'password')}}/>
-    <br/>
 
-    <button type="submit">Login</button>
-  </div>
-
-  <div className="container" Style="background-color:#f1f1f1">
-    <button type="button" className="cancelbtn">Cancel</button>
-    <span className="psw" >Register <a href="/Registro">SignUp</a></span>
-  </div>
-</form>
+      </div>
 
   );}
 

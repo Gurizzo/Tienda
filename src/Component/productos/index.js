@@ -1,7 +1,8 @@
 import React,{Component} from 'react';
-import {getProducts} from '../Service/Services';
+import {getProducts, signUp} from '../Service/Services';
 import {filterProductsByName,addToCart, DeleteItem} from '../../Util/Util';
 import Producto from './Producto';
+import {Button,InputGroup,FormControl} from 'react-bootstrap';
 import {Spinner} from 'react-bootstrap';
 import Carrito from './Carrito';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -50,9 +51,15 @@ class ProductList extends Component{
               cart:cart
           })
       }
+    
 
     componentDidMount() {
         this.handleUpdateClick();
+     }
+
+     logOut=() =>{
+         //Desconectar
+         alert("Salir");
      }
 
      handleUpdateClick=() =>{ //Busqueda de los datos usando la funcion getProducts.
@@ -105,8 +112,13 @@ class ProductList extends Component{
                 
                 <div className="md-form mt-0">
                     
-                <input className="form-control" type="text" placeholder="Search" aria-label="Search" value={this.state.search} name="search" required onChange={(event)=>{this.handleChange(event,'search')}}></input>
-              
+                
+                <InputGroup className="mb-3">    
+    <FormControl  aria-describedby="basic-addon1"  type="text" placeholder="Buscar..." aria-label="Search" value={this.state.search} name="search" required onChange={(event)=>{this.handleChange(event,'search')}} />
+    <InputGroup.Prepend>
+      <Button variant="outline-secondary"onClick={() => this.logOut()} >Salir</Button>
+    </InputGroup.Prepend  >
+  </InputGroup>
                 <div class="container-fluid">
                 <div class="row">
 

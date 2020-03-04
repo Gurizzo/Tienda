@@ -48,10 +48,6 @@ render(){
     
     <FormControl type="number" aria-describedby="basic-addon1" value={this.state.count} name="count" required onChange={(event)=>{this.handleChange(event,'count')}} />
   </InputGroup>
-      <InputGroup className="mb-3">
-     
-    
-  </InputGroup>
 
         
     </Card.Body>
