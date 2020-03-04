@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 import {getProducts, signUp} from '../Service/Services';
 import {filterProductsByName,addToCart, DeleteItem} from '../../Util/Util';
 import Producto from './Producto';
-import {Button,InputGroup,FormControl} from 'react-bootstrap';
+import {Button,InputGroup,FormControl,Alert} from 'react-bootstrap';
 import {Spinner} from 'react-bootstrap';
 import Carrito from './Carrito';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -89,6 +89,7 @@ class ProductList extends Component{
         
         console.log(this.state.status);
         if(this.state.status!=undefined || this.state.status===true){
+            
             let count=0;
             let listItems=[]; //Lista de productos a imprimir de <Producto>
     

@@ -1,0 +1,17 @@
+
+.Producto{
+  
+    margin-top: 3%;
+    margin-left: 5%;
+    float: left;
+    -webkit-box-shadow: 16px 14px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 16px 14px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 16px 14px 5px 0px rgba(0,0,0,0.75);
+    border-radius: 14px 14px 14px 14px;
+-moz-border-radius: 14px 14px 14px 14px;
+-webkit-border-radius: 14px 14px 14px 14px;
+border: 0px solid #000000;
+
+  
+  }
+  

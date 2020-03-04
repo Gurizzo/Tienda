@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { countCartTotalAmount, countCartItems, DeleteItem } from '../../../Util/Util';
+import './Carrito.css';
 
 class Carrito extends Component {
     constructor(props) {

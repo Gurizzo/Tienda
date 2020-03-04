@@ -21,13 +21,19 @@ export default class Registro extends Component {
     signUp(this.state.user, this.state.password)
       .then(res => {
         if (res.status < 400) {
-          console.log('Registrado ok!!')
+          alert("Usuario creado con exito");
           this.done = true;
           this.setState({
             user: this.state.user,
             password: this.state.password
           })
         
+        }else{
+          if(this.state.password.length<9){
+            alert("Datos invalidos la contraseña debe contener al menos 9 caracteres")
+          }else{
+            alert("Datos invalidos")
+          }
         }
 
       })

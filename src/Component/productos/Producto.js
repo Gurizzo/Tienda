@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../../App.css';
+import '../productos/Producto.css';
 import {Card,Button,InputGroup,FormControl} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 

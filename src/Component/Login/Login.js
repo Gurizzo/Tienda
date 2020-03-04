@@ -23,10 +23,13 @@ export default class Login extends Component {
      
       if(res.status<400){
       console.log('Ingreso correcto')
-      this.setState({status:true})}    
+      this.setState({status:true})}
+      else{
+        alert("Datos incorrectos");
+      }    
     })
-    .catch(error => {console.error('Error:', error)
-      });
+    .catch(error => console.error('Error:', error));
+    
       
   }
 
@@ -46,7 +49,7 @@ export default class Login extends Component {
         <Form  onSubmit={(event)=>{this.handleSubmit(event)}}>
         <Form.Group controlId="formBasicEmail">
           <Form.Label>Correo Electronico</Form.Label>
-          <Form.Control type="email" placeholder="Ingresar correo electronico" value={this.state.user} name="uname" required onChange={(event)=>{this.handleChange(event,'user')}}/>
+          <Form.Control type="email" placeholder="Ingresar correo electronico" value={this.state.user} name="uname" required  onChange={(event)=>{this.handleChange(event,'user')}}/>
           <Form.Text className="text-muted">
         <br></br>
           </Form.Text>
@@ -71,7 +74,9 @@ export default class Login extends Component {
   );}
 
   else{
-    return(<ProductList status={this.state.status}/>)
+    return(
+      
+    <ProductList status={this.state.status}/>)
     
   }
 }
