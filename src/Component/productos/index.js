@@ -29,11 +29,15 @@ class ProductList extends Component{
       }
 
       ShopClick = (product,count) => {
-        console.log(product);
-        let cart = addToCart(this.state.cart, {...product, count});
-        this.setState({
-            cart:cart
-        })
+          
+        if(!isNaN(count)){
+            console.log(product);
+            let cart = addToCart(this.state.cart, {...product, count});
+            this.setState({
+                cart:cart
+            })
+          }
+        
         
         
         
@@ -103,7 +107,7 @@ class ProductList extends Component{
                     
                 <input className="form-control" type="text" placeholder="Search" aria-label="Search" value={this.state.search} name="search" required onChange={(event)=>{this.handleChange(event,'search')}}></input>
               
-                <div class="container">
+                <div class="container-fluid">
                 <div class="row">
 
                 <div className="col" >

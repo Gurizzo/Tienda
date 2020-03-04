@@ -41,10 +41,9 @@ class Carrito extends Component {
                     <thead>
                         <tr>
                             
-                            <th scope="col">Product</th>
-
-                            <th scope="col" className="text-center">Quantity</th>
-                            <th scope="col" className="text-right">Price</th>
+                            <th scope="col">Producto</th>
+                            <th scope="col" className="text-center">Cantidad</th>
+                            <th scope="col" className="text-right">Precio</th>
                             <th> </th>
                         </tr>
                     </thead>
@@ -52,17 +51,17 @@ class Carrito extends Component {
                         {listItems}
                         <tr>
                             
-                            <td>Cantidad productos</td>
-                            <td>{cantidadProductos}</td>
-                            <td>Sub-Total</td>
-                            <td className="text-right">{parseFloat(subTotal).toFixed(2)}$</td>
+                            <td><strong>Cantidad productos</strong></td>
+                            <td><strong>{cantidadProductos}</strong></td>
+                            <td><strong>Sub-Total</strong></td>
+                            <td className="text-right"><strong>{parseFloat(subTotal).toFixed(2)}$</strong></td>
                         </tr>
                         <tr>
                             
                             <td></td>
                             <td></td>
-                            <td>iva</td>
-                            <td className="text-right">{parseFloat(subTotal * 0.22).toFixed(2)}$</td>
+                            <td><strong>iva</strong></td>
+                            <td className="text-right"><strong>{parseFloat(subTotal * 0.22).toFixed(2)}$</strong></td>
                         </tr>
                         <tr>
                             
