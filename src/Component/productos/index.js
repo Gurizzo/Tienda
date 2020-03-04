@@ -103,14 +103,24 @@ class ProductList extends Component{
                     
                 <input className="form-control" type="text" placeholder="Search" aria-label="Search" value={this.state.search} name="search" required onChange={(event)=>{this.handleChange(event,'search')}}></input>
               
-                
-                    <div className="productos">
+                <div class="container">
+                <div class="row">
+
+                <div className="col" >
                     {listItems}
                     </div>
                     
-
+                    <div className="col" >
                     <Carrito  carrito={this.state.cart} onDeleteItemClick={this.DeleteItemClick}></Carrito>
                     </div>
+                    
+                </div>
+                
+                    </div>
+
+                </div>
+
+
                 
                     
                     )

@@ -22,7 +22,7 @@ class Carrito extends Component {
             listItems = this.props.carrito.map((product) =>
             
                 <tr key={product._id}>
-                    <td><img src={product.photo} style={{ width: '5rem', height: '5rem' }} /> </td>
+                    
                     <td>{product.name}</td>
 
                     <td>{product.count}</td>
@@ -40,7 +40,7 @@ class Carrito extends Component {
                 <table className="table table-striped">
                     <thead>
                         <tr>
-                            <th scope="col"> </th>
+                            
                             <th scope="col">Product</th>
 
                             <th scope="col" className="text-center">Quantity</th>
@@ -51,21 +51,21 @@ class Carrito extends Component {
                     <tbody>
                         {listItems}
                         <tr>
-                            <td></td>
+                            
                             <td>Cantidad productos</td>
                             <td>{cantidadProductos}</td>
                             <td>Sub-Total</td>
                             <td className="text-right">{parseFloat(subTotal).toFixed(2)}$</td>
                         </tr>
                         <tr>
-                            <td></td>
+                            
                             <td></td>
                             <td></td>
                             <td>iva</td>
                             <td className="text-right">{parseFloat(subTotal * 0.22).toFixed(2)}$</td>
                         </tr>
                         <tr>
-                            <td></td>
+                            
                             <td></td>
                             <td></td>
                             <td><strong>Total</strong></td>

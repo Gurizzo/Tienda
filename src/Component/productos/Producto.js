@@ -32,7 +32,7 @@ render(){
   return(
     <div className="Producto"  >
 
-    <Card style={{ width: '18rem', height:'32rem' }} >
+    <Card style={{ width: '18rem', height:'30rem' }} >
     <Card.Img variant="top" src= {this.state.photo} style={{ width: '18rem', height:'10rem' }} />
     <Card.Body>
         <Card.Title>{this.state.name}</Card.Title>
