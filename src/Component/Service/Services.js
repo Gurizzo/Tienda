@@ -1,4 +1,3 @@
-import axios from 'react-axios'
 export const API_URL= 'http://tiendaonline2020.herokuapp.com/api'
 
 
@@ -43,7 +42,7 @@ export const login = async (userName,pass)=>{
 
 
 export function getProducts (){
-    let respuesta=[];
+    
     const url=`${API_URL}/product/all`;
         
     return fetch(url).then(resolve => {
@@ -53,9 +52,3 @@ export function getProducts (){
 
 
 
-/*
-
-
-export function getProducts (){
-return axios.get(`${API_URL}/product/all`)
-}*/

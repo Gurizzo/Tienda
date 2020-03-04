@@ -19,7 +19,7 @@ class Producto extends Component{
   }
   handleChange=(event,input)=>{ 
     
-    console.log("aca: "+input)
+    
     this.setState({
       [input]:parseInt(event.target.value)
     })

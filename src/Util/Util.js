@@ -1,14 +1,4 @@
 
- let cart=[
-    
-       { 
-           "_id":"5e40b0ee97fef18946b150f2",
-           "name":"Poción Multijugos",
-           "price":111.6,
-           "count":0
-        },
-    
-]
 
 export function filterProductsByName(products,name) {
 
@@ -34,7 +24,7 @@ export function addToCart (cart,item) {
 }
 
 export function DeleteItem(cart,item){
-    console.log(cart,"cart",item,"item")
+    
     return cart.filter(c => c._id  !== item._id)
 }
 

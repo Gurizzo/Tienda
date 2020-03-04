@@ -1,8 +1,8 @@
 import React,{Component} from 'react';
-import {getProducts, signUp} from '../Service/Services';
+import {getProducts} from '../Service/Services';
 import {filterProductsByName,addToCart, DeleteItem} from '../../Util/Util';
 import Producto from './Producto';
-import {Button,InputGroup,FormControl,Alert} from 'react-bootstrap';
+import {Button,InputGroup,FormControl} from 'react-bootstrap';
 import {Spinner} from 'react-bootstrap';
 import Carrito from './Carrito';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -35,7 +35,7 @@ class ProductList extends Component{
       ShopClick = (product,count) => {
           
         if(!isNaN(count)){
-            console.log(product);
+            
             let cart = addToCart(this.state.cart, {...product, count});
             this.setState({
                 cart:cart
@@ -47,8 +47,7 @@ class ProductList extends Component{
         
       }
       DeleteItemClick =(product) =>{
-          debugger
-          console.log(product);
+         
           let cart = DeleteItem(this.state.cart,product);
           this.setState({
               cart:cart
@@ -87,10 +86,10 @@ class ProductList extends Component{
 
     render(){
         
-        console.log(this.state.status);
-        if(this.state.status!=undefined || this.state.status===true){
+        
+        if(this.state.status!==undefined || this.state.status===true){
             
-            let count=0;
+            
             let listItems=[]; //Lista de productos a imprimir de <Producto>
     
             if(this.state.products.length<0 || this.state.search===""){
@@ -126,8 +125,8 @@ class ProductList extends Component{
           <Button variant="outline-secondary"onClick={() => this.logOut()} >Salir</Button>
         </InputGroup.Prepend  >
       </InputGroup>
-                    <div class="container-fluid">
-                    <div class="row">
+                    <div className="container-fluid">
+                    <div className="row">
     
                     <div className="col" >
                         {listItems}

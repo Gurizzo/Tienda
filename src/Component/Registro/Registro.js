@@ -76,7 +76,7 @@ export default class Registro extends Component {
         </Button>
         
         <div className="registro">
-      <a class="underlineHover" href="/">Volver</a>
+      <a className="underlineHover" href="/">Volver</a>
     </div>
       </Form>
 

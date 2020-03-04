@@ -11,7 +11,9 @@ export default class Login extends Component {
   constructor(props) {
     super(props);
     this.state={
-      status:false
+      status:false,
+      user:"",
+      password:""
     }
       }
 
@@ -22,7 +24,7 @@ export default class Login extends Component {
     .then(res=>{
      
       if(res.status<400){
-      console.log('Ingreso correcto')
+      
       this.setState({status:true})}
       else{
         alert("Datos incorrectos");
@@ -64,7 +66,7 @@ export default class Login extends Component {
         </Button>
         
         <div className="registro">
-      <a class="underlineHover" href="/Registro">Registrar</a>
+      <a className="underlineHover" href="/Registro">Registrar</a>
     </div>
       </Form>
 
