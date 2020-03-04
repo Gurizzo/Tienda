@@ -54,21 +54,21 @@ class Carrito extends Component {
                             <td><strong>Cantidad productos</strong></td>
                             <td><strong>{cantidadProductos}</strong></td>
                             <td><strong>Sub-Total</strong></td>
-                            <td className="text-right"><strong>{parseFloat(subTotal).toFixed(2)}$</strong></td>
+                            <td className="text-right"><strong>${parseFloat(subTotal).toFixed(2)}</strong></td>
                         </tr>
                         <tr>
                             
                             <td></td>
                             <td></td>
                             <td><strong>iva</strong></td>
-                            <td className="text-right"><strong>{parseFloat(subTotal * 0.22).toFixed(2)}$</strong></td>
+                            <td className="text-right"><strong>${parseFloat(subTotal * 0.22).toFixed(2)}</strong></td>
                         </tr>
                         <tr>
                             
                             <td></td>
                             <td></td>
                             <td><strong>Total</strong></td>
-                            <td className="text-right"><strong>{parseFloat(subTotal * 1.22).toFixed(2)}$</strong></td>
+                            <td className="text-right"><strong>${parseFloat(subTotal * 1.22).toFixed(2)}</strong></td>
                            
                         </tr>
                     </tbody>
