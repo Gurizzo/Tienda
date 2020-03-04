@@ -6,6 +6,7 @@ import {Button,InputGroup,FormControl} from 'react-bootstrap';
 import {Spinner} from 'react-bootstrap';
 import Carrito from './Carrito';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Login from '../Login/Login';
 
 
 
@@ -18,9 +19,11 @@ class ProductList extends Component{
         this.state={
             products:[], //Lista de productos.
             search:"",   //Valores del filtro de busqueda.
-            cart:[]
+            cart:[],
+            status:props.status
         }
     }
+    
     handleChange=(event,search)=>{ 
         
         this.setState({
@@ -58,8 +61,10 @@ class ProductList extends Component{
      }
 
      logOut=() =>{
-         //Desconectar
-         alert("Salir");
+        this.setState({
+            status:undefined
+        })
+        this.handleUpdateClick()
      }
 
      handleUpdateClick=() =>{ //Busqueda de los datos usando la funcion getProducts.
@@ -82,68 +87,76 @@ class ProductList extends Component{
 
     render(){
         
-        
-        let count=0;
-        let listItems=[]; //Lista de productos a imprimir de <Producto>
-
-        if(this.state.products.length<0 || this.state.search===""){
-
-             listItems = this.state.products.map((product) => <Producto key={product._id} data={product} onShopClick={this.ShopClick} > </Producto>  );
-            //Valida que no llegue undefined al filtro
-            
-        }else{
-
-            const filtred= filterProductsByName(this.state.products,this.state.search);
-             listItems = filtred.map((product) => <Producto key={product._id} data={product} onShopClick={this.ShopClick}  > </Producto>  );
-            //Realiza el filtrado y valida undefined
-
-        }
-
-        
-        if(this.state.products.length<=0){
-            
-            return <div className="d-flex justify-content-center"><Spinner  animation="grow" variant="primary" /></div>
-            //Si todavia no llego la carga de datos muestra un spinner.
-
-        }else{
-            
-            //Carga de la vista si tiene datos, y los filtra si es necesario.
-            return (
+        console.log(this.state.status);
+        if(this.state.status!=undefined || this.state.status===true){
+            let count=0;
+            let listItems=[]; //Lista de productos a imprimir de <Producto>
+    
+            if(this.state.products.length<0 || this.state.search===""){
+    
+                 listItems = this.state.products.map((product) => <Producto key={product._id} data={product} onShopClick={this.ShopClick} > </Producto>  );
+                //Valida que no llegue undefined al filtro
                 
-                <div className="md-form mt-0">
-                    
+            }else{
+    
+                const filtred= filterProductsByName(this.state.products,this.state.search);
+                 listItems = filtred.map((product) => <Producto key={product._id} data={product} onShopClick={this.ShopClick}  > </Producto>  );
+                //Realiza el filtrado y valida undefined
+    
+            }
+    
+            
+            if(this.state.products.length<=0){
                 
-                <InputGroup className="mb-3">    
-    <FormControl  aria-describedby="basic-addon1"  type="text" placeholder="Buscar..." aria-label="Search" value={this.state.search} name="search" required onChange={(event)=>{this.handleChange(event,'search')}} />
-    <InputGroup.Prepend>
-      <Button variant="outline-secondary"onClick={() => this.logOut()} >Salir</Button>
-    </InputGroup.Prepend  >
-  </InputGroup>
-                <div class="container-fluid">
-                <div class="row">
-
-                <div className="col" >
-                    {listItems}
-                    </div>
+                return <div className="d-flex justify-content-center"><Spinner  animation="grow" variant="primary" /></div>
+                //Si todavia no llego la carga de datos muestra un spinner.
+    
+            }else{
+                
+                //Carga de la vista si tiene datos, y los filtra si es necesario.
+                return (
                     
+                    <div className="md-form mt-0">
+                        
+                    
+                    <InputGroup className="mb-3">    
+        <FormControl  aria-describedby="basic-addon1"  type="text" placeholder="Buscar..." aria-label="Search" value={this.state.search} name="search" required onChange={(event)=>{this.handleChange(event,'search')}} />
+        <InputGroup.Prepend>
+          <Button variant="outline-secondary"onClick={() => this.logOut()} >Salir</Button>
+        </InputGroup.Prepend  >
+      </InputGroup>
+                    <div class="container-fluid">
+                    <div class="row">
+    
                     <div className="col" >
-                    <Carrito  carrito={this.state.cart} onDeleteItemClick={this.DeleteItemClick}></Carrito>
+                        {listItems}
+                        </div>
+                        
+                        <div className="col" >
+                        <Carrito  carrito={this.state.cart} onDeleteItemClick={this.DeleteItemClick}></Carrito>
+                        </div>
+                        
                     </div>
                     
-                </div>
-                
+                        </div>
+    
                     </div>
-
-                </div>
-
-
-                
+    
+    
                     
-                    )
+                        
+                        )
+            }
+            
+    
+             
+        }else{
+            return <Login></Login>
         }
-
-         
-    }
+        
+        }
+        
+        
 
 
     

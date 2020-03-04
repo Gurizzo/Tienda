@@ -10,7 +10,9 @@ import './Login.css';
 export default class Login extends Component {
   constructor(props) {
     super(props);
-    this.state={}
+    this.state={
+      status:false
+    }
       }
 
   handleSubmit=(event)=>{ 
@@ -21,7 +23,7 @@ export default class Login extends Component {
      
       if(res.status<400){
       console.log('Ingreso correcto')
-      this.setState({done:true})}    
+      this.setState({status:true})}    
     })
     .catch(error => {console.error('Error:', error)
       });
@@ -37,7 +39,7 @@ export default class Login extends Component {
 
   render() { 
   
-    if(!this.state.done){
+    if(!this.state.status){
       return (
 <div className="login">
     <h3>Login</h3>
@@ -69,7 +71,7 @@ export default class Login extends Component {
   );}
 
   else{
-    return(<ProductList/>)
+    return(<ProductList status={this.state.status}/>)
     
   }
 }
