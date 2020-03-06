@@ -34,7 +34,7 @@ class ProductList extends Component{
 
       ShopClick = (product,count) => {
           
-        if(!isNaN(count)){
+        if(!isNaN(count) && count>0){
             
             let cart = addToCart(this.state.cart, {...product, count});
             this.setState({
